@@ -1,0 +1,96 @@
+<form
+    class="d-flex flex-column h-100 justify-content-between"
+    [formGroup]="todoForm"
+    (ngSubmit)="submit()"
+>
+    <div>
+        <div class="row">
+            <div class="col-8">
+                <label
+                    for="title"
+                    class="form-label"
+                >
+                    Title
+                </label>
+                <input
+                    id="title"
+                    type="text"
+                    class="form-control"
+                    formControlName="title"
+                >
+            </div>
+            <div class="col">
+                <label
+                    for="id"
+                    class="form-label"
+                >
+                    Id
+                </label>
+                <input
+                    title="id"
+                    type="text"
+                    class="form-control"
+                    formControlName="id"
+                >
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <label
+                    for="description"
+                    class="form-label"
+                >
+                    Description
+                </label>
+                <textarea
+                    id="description"
+                    class="form-control"
+                    formControlName="description"
+                ></textarea>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <label
+                    for="due-date"
+                    class="form-label"
+                >
+                    Due Date
+                </label>
+                <input
+                    id="due-date"
+                    class="form-control"
+                    type="date"
+                    formControlName="dueDate"
+                >
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    routerLink="/home"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    Return
+                </button>
+            </div>
+            <div
+                *ngIf="todoForm.enabled"
+                class="col d-flex justify-content-end"
+            >
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="!todoForm.valid"
+                >
+                    <i class="bi bi-check2"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
