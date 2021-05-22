@@ -47,7 +47,7 @@ export class ItemComponent implements OnInit {
                     const item = this.localTodoService.getTodo(id);
                     this.setFormValues(item);
                 }
-                break;;
+                break;
             }
             case 'item': {
                 const id = this.route.snapshot.paramMap.get('id');
