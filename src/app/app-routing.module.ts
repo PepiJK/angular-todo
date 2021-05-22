@@ -5,12 +5,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ItemComponent } from './pages/item/item.component';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: '', component: HomeComponent },
     { path: 'new', component: ItemComponent },
     { path: 'item/:id', component: ItemComponent },
-    { path: 'edit/:id', component: ItemComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home' }
+    { path: 'edit/:id', component: ItemComponent }
 ];
 
 @NgModule({

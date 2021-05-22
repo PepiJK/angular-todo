@@ -68,7 +68,7 @@ export class ItemComponent implements OnInit {
             dueDate: new Date(this.todoForm.controls['dueDate'].value),
             isDone: this.todoIsDone
         });
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
     }
 
     private setFormValues(todo: TodoItem): void {
