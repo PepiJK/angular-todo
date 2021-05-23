@@ -11,23 +11,22 @@ export class HomeComponent {
     todoItems: TodoItem[];
 
     constructor(private localTodoService: LocalTodoService) {
-        this.todoItems = this.fetchAndSortAllTodoItems();
+        this.todoItems = this.getSortedTodoItems();
     }
 
     toggleTodoIsDone(id: string): void {
         this.localTodoService.toggleTodoIsDone(id);
-        this.todoItems = this.fetchAndSortAllTodoItems();
+        this.todoItems = this.getSortedTodoItems();
     }
 
     deleteTodo(id: string): void {
         this.localTodoService.deleteTodo(id);
-        this.todoItems = this.fetchAndSortAllTodoItems();
+        this.todoItems = this.getSortedTodoItems();
     }
 
-    private fetchAndSortAllTodoItems(): TodoItem[] {
+    private getSortedTodoItems(): TodoItem[] {
         return this.localTodoService.getAllTodos()
             .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime())
-            .sort((a, b) => Number(a.isDone) - Number(b.isDone)
-            );
+            .sort((a, b) => Number(a.isDone) - Number(b.isDone));
     }
 }
