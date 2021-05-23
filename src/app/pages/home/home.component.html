@@ -13,22 +13,11 @@
                 <td [routerLink]="['/item', item.id]">{{ item.title }}</td>
                 <td [routerLink]="['/item', item.id]">{{ item.dueDate | date }}</td>
                 <td class="row-options">
-                    <i
-                        class="bi bi-pencil"
-                        [routerLink]="['/edit', item.id]"
-                    ></i>
-                    <i
-                        class="bi bi-trash text-danger"
-                        (click)="deleteTodo(item.id)"
-                    ></i>
-                    <i
-                        *ngIf="item.isDone"
-                        class="bi bi-arrow-bar-up text-success"
-                        (click)="toggleTodoIsDone(item.id)"
-                    ></i>
-                    <i
-                        *ngIf="!item.isDone"
-                        class="bi bi-check2 text-success"
+                    <i class="bi bi-pencil"[routerLink]="['/edit', item.id]"></i>
+                    <i class="bi bi-trash text-danger"(click)="deleteTodo(item.id)"></i>
+                    <i 
+                        class="bi text-success" 
+                        [ngClass]="item.isDone ? 'bi-arrow-bar-up' : 'bi-check2'"
                         (click)="toggleTodoIsDone(item.id)"
                     ></i>
                 </td>
