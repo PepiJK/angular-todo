@@ -29,5 +29,4 @@ export class HomeComponent {
             .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime())
             .sort((a, b) => Number(a.isDone) - Number(b.isDone));
     }
-
 }
