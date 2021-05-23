@@ -8,21 +8,19 @@
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngFor="let item of todoItems">
-            <tr [ngClass]="{'finished-todo': item.isDone}">
-                <td [routerLink]="['/item', item.id]">{{ item.title }}</td>
-                <td [routerLink]="['/item', item.id]">{{ item.dueDate | date }}</td>
-                <td class="row-options">
-                    <i class="bi bi-pencil"[routerLink]="['/edit', item.id]"></i>
-                    <i class="bi bi-trash text-danger"(click)="deleteTodo(item.id)"></i>
-                    <i 
-                        class="bi text-success" 
-                        [ngClass]="item.isDone ? 'bi-arrow-bar-up' : 'bi-check2'"
-                        (click)="toggleTodoIsDone(item.id)"
-                    ></i>
-                </td>
-            </tr>
-        </ng-container>
+        <tr *ngFor="let item of todoItems" [ngClass]="{'finished-todo': item.isDone}">
+            <td [routerLink]="['/item', item.id]">{{ item.title }}</td>
+            <td [routerLink]="['/item', item.id]">{{ item.dueDate | date }}</td>
+            <td class="row-options">
+                <i class="bi bi-pencil"[routerLink]="['/edit', item.id]"></i>
+                <i class="bi bi-trash text-danger"(click)="deleteTodo(item.id)"></i>
+                <i 
+                    class="bi text-success" 
+                    [ngClass]="item.isDone ? 'bi-arrow-bar-up' : 'bi-check2'"
+                    (click)="toggleTodoIsDone(item.id)"
+                ></i>
+            </td>
+        </tr>
     </tbody>
 </table>
 <div class="todo-add-wrapper">
