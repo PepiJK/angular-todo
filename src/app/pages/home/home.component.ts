@@ -11,7 +11,7 @@ export class HomeComponent {
     todoItems: TodoItem[];
 
     constructor(private localTodoService: LocalTodoService) {
-        this.todoItems = this.getSortedTodoItems();
+        this.todoItems = this.localTodoService.getAllTodos();
     }
 
     toggleTodoIsDone(id: string): void {
